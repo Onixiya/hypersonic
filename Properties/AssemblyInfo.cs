@@ -14,7 +14,7 @@ using MelonLoader;
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: MelonInfo(typeof(hypersonic.Main), "hypersonic", "1.0.0", "fuckoff")]
+[assembly: MelonInfo(typeof(hypersonic.Main), "hypersonic", "1.0.0", "no")]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

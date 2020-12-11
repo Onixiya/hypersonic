@@ -46,15 +46,24 @@ namespace hypersonic
         {
             rate = s;
         };
-        [EventAttribute("StartMatchEvent")]
-        public static void onEvent(NKHook6.Api.Events._InGame.InGameEvents.StartMatchEvent e)
+        [EventAttribute("KeyPressEvent")]
+        public static void onEvent(KeyEvent e)
         {
+            string key = e.key + "";
+            if (key == "F9")
+            {
                 Il2CppSystem.Action<string> mod = (Il2CppSystem.Action<string>)delegate (string s)
                 {
                     rate = float.Parse(s);
                 };
-                PopupScreen.instance.ShowSetNamePopup("rate", "multiply fire rate by", mod, "0.33");
+                PopupScreen.instance.ShowSetNamePopup("rate", "multiply fire rate by", mod, "999");
                 PopupScreen.instance.GetFirstActivePopup().GetComponentInChildren<TMP_InputField>().characterValidation = TMP_InputField.CharacterValidation.None;
+            }
+        }
+        [EventAttribute("StartMatchEvent")]
+        public static void onEvent(NKHook6.Api.Events._InGame.InGameEvents.StartMatchEvent e)
+        {
+            rate = 999;
         }
     }
 }
