@@ -9,6 +9,7 @@ using Assets.Scripts.Unity.Bridge;
 using Assets.Scripts.Models.Towers.Behaviors;
 using Assets.Scripts.Simulation.Objects;
 using TMPro;
+using System;
 
 namespace hypersonic
 {
@@ -56,14 +57,18 @@ namespace hypersonic
                 {
                     rate = float.Parse(s);
                 };
+                string ratestring = Convert.ToString(rate);
                 PopupScreen.instance.ShowSetNamePopup("rate", "multiply fire rate by", mod, "999");
                 PopupScreen.instance.GetFirstActivePopup().GetComponentInChildren<TMP_InputField>().characterValidation = TMP_InputField.CharacterValidation.None;
+                Logger.Log("Fire rate is now set to:", ratestring);
             }
         }
         [EventAttribute("StartMatchEvent")]
         public static void onEvent(NKHook6.Api.Events._InGame.InGameEvents.StartMatchEvent e)
         {
-            rate = 999;
+            rate = 100;
+            string ratestring = Convert.ToString(rate);
+            Logger.Log("Fire rate is now set to:", ratestring);
         }
     }
 }
