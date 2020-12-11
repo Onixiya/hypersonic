@@ -58,7 +58,7 @@ namespace hypersonic
                     rate = float.Parse(s);
                 };
                 string ratestring = Convert.ToString(rate);
-                PopupScreen.instance.ShowSetNamePopup("rate", "multiply fire rate by", mod, "999");
+                PopupScreen.instance.ShowSetNamePopup("rate", "multiply fire rate by", mod, "50");
                 PopupScreen.instance.GetFirstActivePopup().GetComponentInChildren<TMP_InputField>().characterValidation = TMP_InputField.CharacterValidation.None;
                 Logger.Log("Fire rate is now set to:", ratestring);
             }
@@ -66,7 +66,7 @@ namespace hypersonic
         [EventAttribute("StartMatchEvent")]
         public static void onEvent(NKHook6.Api.Events._InGame.InGameEvents.StartMatchEvent e)
         {
-            rate = 100;
+            rate = 50;
             string ratestring = Convert.ToString(rate);
             Logger.Log("Fire rate is now set to:", ratestring);
         }
